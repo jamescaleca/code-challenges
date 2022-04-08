@@ -9,28 +9,68 @@
 function persistence(num) {
     let output = 1
 
-    const firstArr = String(num)
-        .split('')
-        .map(str => Number(str))
-
     function mult(arr) {
         for (let i = 0; i < arr.length; i++) {
-            output *= arr[i]
+            return output *= arr[i]
         }
+        return output
     }
 
-    mult(firstArr)
-    // console.log(output)
-
-    let secondArr = String(output)
+    let intArr = String(num)
         .split('')
         .map(str => Number(str))
-    console.log(secondArr)
 
-    // if (secondArr.length > 1) {
-    //     console.log(mult(secondArr))
-    // } else {
-    //     return secondArr[0] * 0
+    if (intArr.length === 1) return 0
+
+    while (intArr.length > 1) {
+        mult(intArr)
+        intArr = String(num)
+            .split('')
+            .map(str => Number(str))
+        output = 1
+    }
+    
+    // else {
+    //     function mult(arr) {
+    //         for (let i = 0; i < arr.length; i++) {
+    //             return output *= arr[i]
+    //         }
+    //         return output
+    //     }
+
+    //     mult(firstArr)
+
+    //     let secondArr = String(output)
+    //         .split('')
+    //         .map(str => Number(str))
+
+    //     if (secondArr.length === 1) {
+    //         output = 1
+    //         return mult(secondArr)
+    //     } else {
+    //         output = 1
+    //         mult(secondArr)
+
+    //         let thirdArr = String(output)
+    //             .split('')
+    //             .map(str => Number(str))
+
+    //         if(thirdArr.length === 1) {
+    //             output = 1
+    //             console.log(mult(thirdArr))
+    //             return mult(thirdArr)
+    //         } else {
+    //             output = 1
+    //             mult(thirdArr)
+
+    //             let fourthArr = String(output)
+    //             .split('')
+    //             .map(str => Number(str))
+
+    //             output = 1
+    //             return mult(fourthArr)
+    //         }
+    //     }
     // }
 }
 
