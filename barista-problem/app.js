@@ -26,28 +26,13 @@
 // The order in which you brew the coffee is totally up to you.
 
 function barista(coffees){
-    let waitTime = 0
-    
-    if (coffees.length === 0) {
-      return waitTime
-    }
-    
-    if (coffees.length > 0) {
-        let arrayLength = coffees.length
-        for (let i = 0; i < coffees.length; i++) {
-            waitTime += coffees[i] * arrayLength
-            arrayLength -= 1
-            console.log(waitTime)
-        }
-        waitTime += 2 * (coffees.length - 1)
-        console.log(waitTime)
-        return waitTime
-    }
-    // return waitTime
+    coffees.sort((a,b)=> a - b)
+    return coffees.reduce((acc, brewTime, i) => acc + brewTime * (coffees.length-i) + 2 * i, 0)
 }
 
-barista([2,3,5,9,10])
-// console.log(barista([4,3,2]))
-// console.log(barista([20,5]))
-// console.log(barista([20,5,4,3,1,5,7,8]))
-// console.log(barista([5,4,3,2,1]))
+console.log(barista([2,10,5,3,9]))
+console.log(barista([4,3,2]))
+console.log(barista([4,3,2]))
+console.log(barista([20,5]))
+console.log(barista([20,5,4,3,1,5,7,8]))
+console.log(barista([5,4,3,2,1]))
