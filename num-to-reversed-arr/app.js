@@ -5,7 +5,9 @@
 // 0 => [0]
 
 function digitize(n) {
-    return n.split("").reverse()
+    const digits = n.toString().split("")
+    const realDigits = digits.map(Number)
+    return realDigits.reverse()
 }
 
 console.log(digitize(35231))
