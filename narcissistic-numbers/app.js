@@ -13,5 +13,29 @@
 // Error checking for text strings or other invalid inputs is not required, only valid positive non-zero integers will be passed into the function.
 
 function narcissistic(value) {
+    const split = value.toString().split("")
+    const splitArr = split.map(Number)
     
+    if(splitArr.length === 1) return true
+    if(splitArr.length > 1) {
+        let sum = 0
+        for (let i = 0; i < splitArr.length; i++) {
+            splitArr[i] = splitArr[i] ** splitArr.length
+            sum += splitArr[i]
+        }
+        if(sum === value) return true
+        if(sum !== value) return false
+        return
+    }
+    return
 }
+
+console.log(narcissistic(7))
+console.log(narcissistic(371))
+
+// Another solution:
+// function narcissistic( value ) {
+//     return ('' + value).split('').reduce(function(p, c){
+//       return p + Math.pow(c, ('' + value).length)
+//       }, 0) == value;
+// }
