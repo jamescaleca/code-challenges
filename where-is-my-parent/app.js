@@ -17,3 +17,8 @@ console.log(findChildren("abBA")) // AaBb
 console.log(findChildren("AaaaaZazzz")) // AaaaaaZzzz
 console.log(findChildren("CbcBcbaA")) // AaBbbCcc
 console.log(findChildren("xXfuUuuF")) // FfUuuuXx
+
+
+// different solution:
+// const findChildren = dancingBrigade =>
+//   [...dancingBrigade].sort((a, b) => a.localeCompare(b, `kf`, {caseFirst: `upper`})).join(``);
