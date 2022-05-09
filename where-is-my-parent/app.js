@@ -7,7 +7,8 @@
 // Place all people in alphabetical order where Mothers are followed by their children, i.e. "aAbaBb" => "AaaBbb".
 
 function findChildren(dancingBrigade) {
-	return '';
+    const caseInsensitiveSep = (strA, strB) => strA.toLowerCase().localeCompare(strB.toLowerCase());
+	return dancingBrigade.split('').sort().sort(caseInsensitiveSep).join("")
 }
 
 console.log(findChildren("beeeEBb")) // BbbEeee
