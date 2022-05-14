@@ -10,8 +10,18 @@
 // The first number is the number of laps that Bob has to run
 // The second number is the number of laps that Charles has to run
 
-var nbrOfLaps = function (x, y) {
-    return [0, 0];
+var nbrOfLaps = function(lapALen, lapBLen) {
+    var lcm = lowestCommonMultiple(lapALen, lapBLen);
+    return [lcm / lapALen, lcm / lapBLen];
+}
+  
+function greatestCommonDivisor(a, b) {
+    if (b === 0) return a;
+    return greatestCommonDivisor(b, a % b);
+}
+  
+function lowestCommonMultiple(a, b) {
+    return Math.abs(a * b) / greatestCommonDivisor(a, b);
 }
 
 console.log(nbrOfLaps(5, 3))
