@@ -8,6 +8,11 @@
 // M(n) = n - F(M(n - 1))
 // Don't worry about negative numbers, n will always be greater than or equal to zero.
 
-function F(n) { }
+const F = n => n ? n - M(F(n-1)) : 1 ;
+const M = n => n ? n - F(M(n-1)) : 0 ;
 
-function M(n) { }
+console.log(F(3))
+console.log(M(3))
+
+console.log(F(20))
+console.log(M(20))
