@@ -18,5 +18,12 @@
 // spinningRings(3, 2) = 2
 
 function spinningRings(innerMax, outerMax) {
-    // your code here
+    var inner = 0, outer = 0, step = 0;
+    do {
+      step++; inner--; outer++;
+      if (inner < 0) inner = innerMax;
+      if (outer > outerMax) outer = 0;
+    }
+    while (inner != outer)
+    return step;
   };
