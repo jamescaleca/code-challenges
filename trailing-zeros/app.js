@@ -15,5 +15,21 @@
 // Hint: You're not meant to calculate the factorial. Find another way to find the number of zeros.
 
 function zeros (n) {
-    // your code here  
+    function factorialize(num) {
+        let result = num
+        if (num === 0 || num === 1) 
+          return 1
+        while (num > 1) { 
+          num--
+          result *= num
+        }
+        return result
+    }
+    const fact = factorialize(n)
+    return fact
 }
+
+console.log(zeros(0))
+console.log(zeros(5))
+console.log(zeros(6))
+console.log(zeros(30))
