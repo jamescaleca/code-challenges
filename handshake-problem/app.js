@@ -7,5 +7,13 @@
 // Help Johnny by writing a function, that takes the amount of handshakes and returns the minimal amount of people needed to perform these handshakes (a pair of farmers handshake only once).
 
 function getParticipants(handshakes){
-    // ...
+    let participants = 1
+    while( participants*(participants-1)/2 < handshakes ) participants++
+    return participants
 }
+
+console.log(getParticipants(0))
+console.log(getParticipants(2))
+console.log(getParticipants(3))
+console.log(getParticipants(5))
+console.log(getParticipants(7))
