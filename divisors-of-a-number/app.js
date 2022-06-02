@@ -9,5 +9,14 @@
 // 30 --> 8 (1, 2, 3, 5, 6, 10, 15, 30)
 
 function getDivisorsCnt(n){
-    // todo
+    var cnt = 1
+    for (var i = 0; i <= n / 2; ++i)
+        if (n % i == 0)
+            ++cnt
+    return cnt
 }
+
+console.log(getDivisorsCnt(1))
+console.log(getDivisorsCnt(10))
+console.log(getDivisorsCnt(11))
+console.log(getDivisorsCnt(54))
