@@ -9,5 +9,7 @@
 // String str will never be null.
 
 function replaceDots(str) {
-    return str.replace(/./, '-')
+    return str.split('.').join('-')
 }
+
+console.log(replaceDots("one.two.three"))
