@@ -35,5 +35,25 @@
 // Return "Battle Result: Good triumphs over Evil" if good wins, "Battle Result: Evil eradicates all trace of Good" if evil wins, or "Battle Result: No victor on this battle field" if it ends in a tie.
 
 function goodVsEvil(good, evil){
+    let goodArr = good.split(' ').map(num => parseInt(num))
+    let evilArr = evil.split(' ').map(num => parseInt(num))
+    
+    let goodCnt = 0
+    let evilCnt = 0
 
+    goodArr.map(num => goodCnt += num)
+    evilArr.map(num => evilCnt += num)
+    
+    if(goodCnt > evilCnt) {
+        return "Battle Result: Good triumphs over Evil"
+    } else if(goodCnt < evilCnt) {
+        return "Battle Result: Evil eradicates all trace of Good"
+    } else if(goodCnt === evilCnt) {
+        return "Battle Result: No victor on this battle field"
+    }
+    return
 }
+
+console.log(goodVsEvil('1 1 1 1 1 1', '1 1 1 1 1 1 1'))
+console.log(goodVsEvil('0 0 0 0 0 10', '0 1 1 1 1 0 0'))
+console.log(goodVsEvil('1 0 0 0 0 0', '1 0 0 0 0 0 0'))
