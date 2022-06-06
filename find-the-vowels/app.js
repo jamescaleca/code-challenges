@@ -12,7 +12,15 @@
 // This is indexed from [1..n] (not zero indexed!)
 
 function vowelIndices(word){
-    //your code here
+    const vowels = 'aeiouy'
+    const arr = word.toLowerCase().split('')
+    let answer = []
+    arr.forEach((name, i) => {
+      if (vowels.indexOf(name) !== -1) {
+        answer.push(i + 1)
+      }
+    })
+    return answer
 }
 
 vowelIndices("mmm")
