@@ -2,17 +2,23 @@
 
 // The input for each function is the output of the previous function (except the first function, which takes the starting value as its input). Return the final value after execution is complete.
 
-// function add(num) {
-//   return num + 1;
-// }
+function add(num) {
+  return num + 1;
+}
 
-// function mult(num) {
-//   return num * 30;
-// }
+function mult(num) {
+  return num * 30;
+}
 
-// chain(2, [add, mult]);
-// // returns 90;
 
 function chain(input, fs) {
-    // implement the "chain" function
+    let output = input
+    
+    for (i = 0; i < fs.length; i++) {
+        output = fs[i](output)
+    }
+    return output
 }
+
+console.log(chain(2, [add, mult]))
+// returns 90;
