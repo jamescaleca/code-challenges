@@ -24,48 +24,60 @@
 
 // https://en.wikipedia.org/wiki/R%C3%B6varspr%C3%A5ket
 
-function robberEncode(sentence) {
-    let vowels = 'aeiou'.split('')
-    let consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
+// function robberEncode(sentence) {
+//     let vowels = 'aeiou'.split('')
+//     let consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
 
-    let sentArr = sentence.split('')
+//     let sentArr = sentence.split('')
 
-    let newSent = []
+//     let newSent = []
     
-    for (let i = 0; i < sentArr.length; i++) {
-        for (let j = 0; j < consonants.length; j++) {
-            if (sentArr[i] === consonants[j]) {
-                newSent.push(sentArr[i] + 'o' + sentArr[i])
-            } else if (sentArr[i] === consonants[j].toUpperCase()) {
-                newSent.push(sentArr[i] + 'O' + sentArr[i])
-            } else if (sentArr[i] !== consonants[j] && sentArr[i] !== consonants[j].toUpperCase()){
-                newSent.push(sentArr[i])
-            }
-        }
-        for (let k = 0; k < vowels.length; k++) {
-            if(sentArr[i] === vowels[k]) {
-                newSent.push(sentArr[i])
-            } else if (sentArr[i] === vowels[k].toUpperCase()) {
-                newSent.push(sentArr[i])
-            } else if (sentArr[i] !== vowels[k] && sentArr[i] !== vowels[k].toUpperCase()) {
-                newSent.push(sentArr[i])
-            }
-        }
-        // if (
-        //     sentArr.some(letter => vowels.includes(letter)) === false && 
-        //     sentArr.some(letter => 
-        //         vowels.join('').toUpperCase().split('').includes(letter)) === false && 
-        //     sentArr.some(letter => consonants.includes(letter)) === false &&
-        //     sentArr.some(letter => 
-        //         consonants.join('').toUpperCase().split('').includes(letter)) === false
-        //     ) {
-        //         newSent.push(sentArr[i])
-        //     } else if (sentArr[i] === ' ') {
-        //         newSent.push(sentArr[i])
-        //     }        
+//     for (let i = 0; i < sentArr.length; i++) {
+//         for (let j = 0; j < consonants.length; j++) {
+//             if (sentArr[i] === consonants[j]) {
+//                 newSent.push(sentArr[i] + 'o' + sentArr[i])
+//             } else if (sentArr[i] === consonants[j].toUpperCase()) {
+//                 newSent.push(sentArr[i] + 'O' + sentArr[i])
+//             } else if (sentArr[i] !== consonants[j] && sentArr[i] !== consonants[j].toUpperCase()){
+//                 newSent.push(sentArr[i])
+//             }
+//         }
+//         for (let k = 0; k < vowels.length; k++) {
+//             if(sentArr[i] === vowels[k]) {
+//                 newSent.push(sentArr[i])
+//             } else if (sentArr[i] === vowels[k].toUpperCase()) {
+//                 newSent.push(sentArr[i])
+//             } else if (sentArr[i] !== vowels[k] && sentArr[i] !== vowels[k].toUpperCase()) {
+//                 newSent.push(sentArr[i])
+//             }
+//         }
+//         // if (
+//         //     sentArr.some(letter => vowels.includes(letter)) === false && 
+//         //     sentArr.some(letter => 
+//         //         vowels.join('').toUpperCase().split('').includes(letter)) === false && 
+//         //     sentArr.some(letter => consonants.includes(letter)) === false &&
+//         //     sentArr.some(letter => 
+//         //         consonants.join('').toUpperCase().split('').includes(letter)) === false
+//         //     ) {
+//         //         newSent.push(sentArr[i])
+//         //     } else if (sentArr[i] === ' ') {
+//         //         newSent.push(sentArr[i])
+//         //     }        
+//     }
+//     return newSent.join('')
+// }
+
+function robberEncode(sentence) {
+    let encoded = []
+    for(let char of sentence) {
+      encoded.push(char)
+      if("QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm".includes(char)) {
+        encoded.push(char == char.toLowerCase() ? 'o' : 'O')
+        encoded.push(char)
+      }
     }
-    return newSent.join('')
-}
+    return encoded.join``
+  }
 
 console.log(robberEncode("hello world"))
 console.log(robberEncode("coding is fun"))
