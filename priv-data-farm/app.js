@@ -25,7 +25,19 @@ Read about toDateString() for info on formatting a readable date.
 
 */
 function transformData(data){
-
+    let userArr = []
+    
+    for (let i = 0; i < userData.length; i++) {
+        let fullName = `${userData[i].name.title} ${userData[i].name.first} ${userData[i].name.last}`
+        let readDate = new Date(userData[i].dob.date)
+        readDate = readDate.toDateString()
+        let person = {
+            fullName: fullName, 
+            birthday: readDate
+        }
+        userArr.push(person)
+    }
+    return userArr
 }
 
 console.log(transformData(userData));
